@@ -1,0 +1,58 @@
+EJERCICIOS COMPLEMENTARIOS INTEGRADORES
+1. “Salida de un laberinto”: Se trata de encontrar un camino que nos permita salir de un 
+laberinto definido en una matriz NxN. Para movernos por el laberinto, sólo podemos 
+pasar de una casilla a otra que sea adyacente a la primera y no esté marcada como 
+una casilla prohibida (esto es, las casillas prohibidas determinan las paredes que 
+forman el laberinto). 
+Algoritmo recursivo:
+• Se comienza en la casilla (0,0) y se termina en la casilla (N-1, N-1) 
+• Nos movemos a una celda adyacente si esto es posible. 
+• Cuando llegamos a una situación en la que no podemos realizar ningún 
+movimiento que nos lleve a una celda que no hayamos visitado ya, 
+retrocedemos sobre nuestros pasos y buscamos un camino alternativo.
+2. “Batalla naval espacial”: Este juego se juega en un tablero de 4 x 4, donde las filas se 
+identifican de la A hasta la D y las columnas del 1 al 4. En el juego participan 2 
+contendientes: el defensor y el atacante. Dicho juego consiste en:
+El defensor, ubica solo una nave nodriza triple con ciertas reglas:
+2.1) La nave debe ubicarse de tal forma que sus partes queden contiguas, ya 
+sea horizontal o vertical, pero no es válido en forma oblicua.
+2.2) Cada una de las tres partes que compone la nave contiene un escudo 
+de electrones medido con un valor del 1 al 9, el cual debe pedirse al 
+usuario junto con su posición.
+A continuación, se ilustra un ejemplo de una ubicación posible:
+  1 2 3 4
+A
+B
+C   4 7 1 
+D
+2.3) El atacante, indicando una coordenada del tablero (por ejemplo, C3) y 
+una carga de protones, debe intentar acertar a la nave de su contrincante. 
+El ataque, posee las siguientes reglas:
+a) La carga de protones asociada al ataque corresponde a un valor del 1 al 9.
+b) ¡Si el atacante no acierta en la posición, entonces el defensor informa 
+“Espacio!”.
+c) Si el atacante acierta la posición:
+16 
+c.1) El ataque es “efectivo” y resta el valor de la carga protones al escudo de 
+electrones, si y solo sí, el valor de la carga de protones es menor o igual al 
+valor restante de electrones del escudo. En el ejemplo de ubicación anterior 
+si el atacante indica C3 con carga 9, el ataque es “sin efecto” y no genera 
+daño alguno. Pero si indica C3 con carga 4 el ataque es “efectivo” y el escudo 
+de la posición queda con carga de 3 electrones.
+c.2) Luego del ataque se debe indicar si fue efectivo o no, si se neutralizó o 
+no el escudo del casillero y la suma total de electrones que resta para hundir 
+la nave. El escudo de un casillero se neutraliza cuando llega a cero. 
+Suponiendo que en el primer ataque se indica C3 con carga 4, se indica 
+“Ataque efectivo – Escudo no neutralizado – Carga restante de electrones 
+igual a 3”. 
+d) Cada vez que el atacante realiza un disparo resta el valor de la carga de su 
+reactor de protones. El reactor de la nave atacante es de 40 protones. Un 
+disparo a realizar no puede superar la carga de protones restantes.
+El juego termina cuando se cumple alguna de las siguientes situaciones:
+a) Gana el atacante cuando deja sin escudos a la nave nodriza y todavía le 
+queda carga para un disparo más.
+b) Gana el defensor cuando el atacante se queda sin carga en el reactor de 
+protones.
+Realice un programa que implemente la lógica del juego, iniciando con la distribución de la 
+nave en el tablero por parte del defensor, y luego desarrollando la partida del atacante hasta 
+la culminación del juego. El programa debe indicar quién ganó el juego
